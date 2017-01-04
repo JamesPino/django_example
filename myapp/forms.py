@@ -1,10 +1,10 @@
 from django import forms
 
-from .models import Post
+from .models import Workout
 
 
-class PostForm(forms.ModelForm):
 
+class PostFormWorkout(forms.ModelForm):
     class Meta:
-        model = Post
-        fields = ('title', 'text',)
+        model = Workout
+        fields = ('title', 'text', 'num_miles', 'time_taken')

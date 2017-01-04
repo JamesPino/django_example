@@ -1,0 +1,17 @@
+{% extends 'blog/workout_base.html' %}
+
+{% block content %}
+    <div class="workout">
+        {% if workout.published_date %}
+            <div class="date">
+                {{ workout.published_date }}
+            </div>
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'workout_edit' pk=workout.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h1>{{ workout.title }}</h1>
+        <p>Notes : {{ workout.text|linebreaksbr }}</p>
+        <p>Number of miles : {{ workout.num_miles|linebreaksbr }}</p>
+        <p>Time taken (mins) : {{ workout.time_taken|linebreaksbr }}</p>
+        <p>Average time for a mile : {{ workout.average_mile|linebreaksbr }}</p>
+    </div>
+{% endblock %}

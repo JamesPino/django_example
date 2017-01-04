@@ -1,4 +1,4 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/workout_base.html' %}
 
 {% block content %}
     {% for workout in workouts %}
@@ -6,9 +6,11 @@
             <div class="date">
                 {{ workout.published_date }}
             </div>
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.num_miles|linebreaksbr }}</p>
-            <p>{{ post.text|linebreaksbr }}</p>
+
+            <h1><a href="{% url 'workout_detail' pk=workout.pk %}">{{ workout.title }}</a></h1>
+            <p>{{ workout.text|linebreaksbr }}</p>
+            <p>{{ workout.num_miles|linebreaksbr }}</p>
+            <p>{{ workout.time_taken|linebreaksbr }}</p>
         </div>
     {% endfor %}
 {% endblock content %}
